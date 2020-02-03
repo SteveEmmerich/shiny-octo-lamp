@@ -8,9 +8,12 @@ const TractStateContext = createContext();
 const TractDispatchContext = createContext();
 
 // Tract provider will give our components state
-const TractProvider = ({ children }) => {
+const TractProvider = ({ tempstate, children }) => {
   // Fuax redux
-  const [state, dispatch] = useReducerWithLogger(reducers, initialState);
+  const [state, dispatch] = useReducerWithLogger(
+    reducers,
+    tempstate || initialState
+  );
 
   // Wrap anything in our providers
   return (
@@ -59,8 +62,17 @@ const withProvider = WrappedComponent => {
     </TractProvider>
   );
 };
+
+const withProviderAndInitialState = (WrappedComponent, initialState) => {
+  return () => (
+    <TractProvider tempstate={initialState}>
+      <WrappedComponent />
+    </TractProvider>
+  );
+};
 export {
   withProvider,
+  withProviderAndInitialState,
   TractProvider,
   useTractState,
   useTractDispatch,

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container, Row, Col, Button, Dropdown } from 'react-bootstrap';
 import { MineralInterest } from '../components/mineralInterest.component';
 import Icon from '../Icon';
@@ -13,13 +13,20 @@ const EditTractOwnership = ({
 }) => {
   // Get and set state
   const [state, dispatch] = useTract();
-  value = state;
 
+  //value = state;
+
+  // On Init - only run on create
+
+  // On component did update, change
+  useEffect(() => {
+    onChange(state);
+  }, [state, onChange]);
   // dispatch adding a material interest
   const handleClick = e => {
     e.preventDefault();
     dispatch(add_mi({ owner: '', interest: 0, lease: '', npris: [] }));
-    onChange(value);
+    // onChange(value);
   };
 
   return (
@@ -40,7 +47,7 @@ const EditTractOwnership = ({
         </Col>
       </Row>
       <Dropdown.Divider /> {/* Weird */}
-      <RenderTracts tracts={value} onChange={e => onChange(value)} />
+      <RenderTracts tracts={state} onChange={e => onChange(value)} />
       <Button onClick={handleClick} variant="light">
         <Icon icon="add" />
         Add Mineral Interest

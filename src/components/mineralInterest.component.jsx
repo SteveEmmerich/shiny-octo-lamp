@@ -8,28 +8,23 @@ import { add_npri, delete_mi, update_mi } from '../state/actions';
 
 const MineralInterest = props => {
   const { values, onChange } = props;
-  console.log(`values of MI : ${JSON.stringify(values)}`);
+
   const miValues = values;
-  //const [miValues, setMiValues] = useState(values);
+
   const dispatch = useTractDispatch();
-  console.log(`use state values: ${miValues}`);
+
   const AddNPRI = (e, id) => {
     e.preventDefault();
     dispatch(add_npri({ id, data: { owner: '', interest: 0.0 } }));
-
-    //setMiValues(...miValues);
-    onChange();
   };
   const remove = (e, id) => {
     e.preventDefault();
     dispatch(delete_mi(id));
-    onChange();
   };
   const updateMi = (e, miId) => {
     e.preventDefault();
     const { value, id } = e.target;
     dispatch(update_mi({ id: miId, changes: { [id]: value } }));
-    onChange();
   };
   // wrap the setMi in an onchange handler that calls both setMi and onchange.
   return (
@@ -88,8 +83,6 @@ const MineralInterest = props => {
 };
 
 const RenderNPRIChildren = ({ npris, miId, onChange }) => {
-  console.log(`mi Id: ${miId}, npris: ${JSON.stringify(npris, null, 2)}`);
-
   return npris
     ? npris.map(npri => (
         <Npri

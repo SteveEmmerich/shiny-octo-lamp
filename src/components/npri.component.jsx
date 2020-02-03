@@ -6,7 +6,7 @@ import { useTractDispatch } from '../state/context.provider';
 import { delete_npri, update_npri } from '../state/actions';
 
 const Npri = props => {
-  const { values, miId, onChange } = props;
+  const { values, miId } = props;
   const npriValues = values;
 
   const dispatch = useTractDispatch();
@@ -16,13 +16,13 @@ const Npri = props => {
   const remove = (e, id, miId) => {
     e.preventDefault();
     dispatch(delete_npri({ miId, id }));
-    onChange();
+    //onChange();
   };
   const updateNpri = (e, npriId, miId) => {
     e.preventDefault();
     const { value, id } = e.target;
     dispatch(update_npri({ miId, id: npriId, changes: { [id]: value } }));
-    onChange(e.target.value);
+    //onChange(e.target.value);
   };
   return (
     <Form.Group

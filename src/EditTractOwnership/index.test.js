@@ -85,7 +85,7 @@ describe('EditTractOwnership', () => {
     expect(screen.getByText('Add Mineral Interest')).toBeInTheDocument();
   });
 
-  test.only('Should add empty mineral interest row', () => {
+  test('Should add empty mineral interest row', () => {
     let result;
 
     render(<EditTractOwnership onChange={v => (result = v)} />, {
@@ -94,7 +94,7 @@ describe('EditTractOwnership', () => {
 
     const addMineralInterest = screen.getByText('Add Mineral Interest');
     fireEvent.click(addMineralInterest);
-    console.log(`test result`, result);
+    console.log(`test result`, addMineralInterest);
     expect(result.length).toEqual(1);
     expect(result[0].id).not.toBeNull();
   });
@@ -188,7 +188,7 @@ describe('EditTractOwnership', () => {
     ];
 
     render(<EditTractOwnership value={value} onChange={v => (result = v)} />, {
-      wrapper: TractProvider,
+      wrapper: <TractProvider tempstate={value} />,
     });
 
     const id = value[0].id;

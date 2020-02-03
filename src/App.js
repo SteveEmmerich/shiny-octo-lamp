@@ -7,7 +7,7 @@ import './App.css';
 
 import EditTractOwnership from './EditTractOwnership';
 import Icon from './Icon';
-import { withProvider, useTract } from './state/context.provider';
+import { withProvider, useTractDispatch } from './state/context.provider';
 import { set_state } from './state/actions';
 import ErrorBoundary from './components/errorBounds.component';
 
@@ -33,7 +33,7 @@ const tractOwnerships = [
 ];
 
 function App() {
-  const [dispatch] = useTract();
+  const dispatch = useTractDispatch();
 
   // On intial load fire set state
   useEffect(() => {
