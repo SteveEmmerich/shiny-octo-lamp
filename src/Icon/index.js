@@ -20,6 +20,8 @@ const getIconProps = icon => {
       return {
         icon: 'level-up-alt',
         rotation: 90,
+        fixedWidth: true,
+        size: 'sm',
       };
     case 'remove':
       return {

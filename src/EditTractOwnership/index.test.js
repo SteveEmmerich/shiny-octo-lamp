@@ -1,12 +1,12 @@
 import React from 'react';
 import uuidv4 from 'uuid/v4';
 import { render, fireEvent, screen } from '@testing-library/react';
-
 import EditTractOwnership from './';
+import { TractProvider } from '../state/context.provider';
 
 describe('EditTractOwnership', () => {
   test('Should render without a value', () => {
-    render(<EditTractOwnership />);
+    render(<EditTractOwnership />, { wrapper: TractProvider });
 
     expect(screen.getByText('Add Mineral Interest')).toBeInTheDocument();
   });
@@ -29,7 +29,7 @@ describe('EditTractOwnership', () => {
       },
     ];
 
-    render(<EditTractOwnership value={value} />);
+    render(<EditTractOwnership value={value} />, { wrapper: TractProvider });
 
     const lukeMineralInterest = screen.getByTestId(
       `mineralInterest-${value[0].id}`
@@ -67,7 +67,7 @@ describe('EditTractOwnership', () => {
       },
     ];
 
-    render(<EditTractOwnership value={value} />);
+    render(<EditTractOwnership value={value} />, { wrapper: TractProvider });
 
     const lukeMineralInterest = screen.getByTestId(
       `mineralInterest-${value[0].id}`
@@ -85,14 +85,16 @@ describe('EditTractOwnership', () => {
     expect(screen.getByText('Add Mineral Interest')).toBeInTheDocument();
   });
 
-  test('Should add empty mineral interest row', () => {
+  test.only('Should add empty mineral interest row', () => {
     let result;
 
-    render(<EditTractOwnership onChange={v => (result = v)} />);
+    render(<EditTractOwnership onChange={v => (result = v)} />, {
+      wrapper: TractProvider,
+    });
 
     const addMineralInterest = screen.getByText('Add Mineral Interest');
     fireEvent.click(addMineralInterest);
-
+    console.log(`test result`, result);
     expect(result.length).toEqual(1);
     expect(result[0].id).not.toBeNull();
   });
@@ -100,7 +102,9 @@ describe('EditTractOwnership', () => {
   test('Should add and update mineral interest row', () => {
     let result;
 
-    render(<EditTractOwnership onChange={v => (result = v)} />);
+    render(<EditTractOwnership onChange={v => (result = v)} />, {
+      wrapper: TractProvider,
+    });
 
     const addMineralInterest = screen.getByText('Add Mineral Interest');
     fireEvent.click(addMineralInterest);
@@ -126,7 +130,9 @@ describe('EditTractOwnership', () => {
   test('Should add and update mineral interest + NPRI row', () => {
     let result;
 
-    render(<EditTractOwnership onChange={v => (result = v)} />);
+    render(<EditTractOwnership onChange={v => (result = v)} />, {
+      wrapper: TractProvider,
+    });
 
     const addMineralInterest = screen.getByText('Add Mineral Interest');
     fireEvent.click(addMineralInterest);
@@ -181,7 +187,9 @@ describe('EditTractOwnership', () => {
       },
     ];
 
-    render(<EditTractOwnership value={value} onChange={v => (result = v)} />);
+    render(<EditTractOwnership value={value} onChange={v => (result = v)} />, {
+      wrapper: TractProvider,
+    });
 
     const id = value[0].id;
     const removeButton = screen.getByTestId(`mineralInterest-${id}.remove`);
@@ -218,7 +226,9 @@ describe('EditTractOwnership', () => {
       },
     ];
 
-    render(<EditTractOwnership value={value} onChange={v => (result = v)} />);
+    render(<EditTractOwnership value={value} onChange={v => (result = v)} />, {
+      wrapper: TractProvider,
+    });
 
     const id = value[0].npris[0].id;
     const removeButton = screen.getByTestId(`npri-${id}.remove`);
