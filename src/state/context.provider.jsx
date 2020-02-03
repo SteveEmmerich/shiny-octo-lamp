@@ -1,4 +1,4 @@
-import React, { useEffect, createContext, useContext } from 'react';
+import React, { createContext, useContext } from 'react';
 
 import { reducers, initialState } from './reducers';
 import { useReducerWithLogger } from './utils';

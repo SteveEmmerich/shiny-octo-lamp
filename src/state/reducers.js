@@ -1,4 +1,4 @@
-import { createReducer, errorLogger } from './utils.js';
+import { createReducer } from './utils.js';
 import uuidv4 from 'uuid';
 import * as Actions from './actions';
 

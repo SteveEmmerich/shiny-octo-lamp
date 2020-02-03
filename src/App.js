@@ -33,21 +33,14 @@ const tractOwnerships = [
 ];
 
 function App() {
-  /*const context = useContext(TractContext);
-  const state = context.state;*/
-  const [state, dispatch] = useTract();
+  const [dispatch] = useTract();
 
   // On intial load fire set state
   useEffect(() => {
-    dispatch(set_state([]));
+    dispatch(set_state(tractOwnerships));
     // List dispatch as a dep because it will never change
   }, [dispatch]);
 
-  useEffect(() => {
-    console.log(`Top level state updated: ${JSON.stringify(state)}`);
-  }, [state, state.length]);
-  console.log('inital:' + state);
-  //console.log(`tracts ${tracts}`);
   return (
     <ErrorBoundary>
       <Container>
