@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/shiny-octo-lamp/precache-manifest.e4d17aa60a32b60bdbd617c22484ac9b.js"
+  "/shiny-octo-lamp/precache-manifest.5d6a75e6c3136fad487f843fa78f56bc.js"
 );
 
 self.addEventListener('message', (event) => {
