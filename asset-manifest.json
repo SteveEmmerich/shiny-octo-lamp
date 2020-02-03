@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/shiny-octo-lamp/static/css/main.d1b05096.chunk.css",
+    "main.js": "/shiny-octo-lamp/static/js/main.978ffb48.chunk.js",
+    "main.js.map": "/shiny-octo-lamp/static/js/main.978ffb48.chunk.js.map",
+    "runtime-main.js": "/shiny-octo-lamp/static/js/runtime-main.b8470b82.js",
+    "runtime-main.js.map": "/shiny-octo-lamp/static/js/runtime-main.b8470b82.js.map",
+    "static/css/2.67123b20.chunk.css": "/shiny-octo-lamp/static/css/2.67123b20.chunk.css",
+    "static/js/2.da9d72b7.chunk.js": "/shiny-octo-lamp/static/js/2.da9d72b7.chunk.js",
+    "static/js/2.da9d72b7.chunk.js.map": "/shiny-octo-lamp/static/js/2.da9d72b7.chunk.js.map",
+    "index.html": "/shiny-octo-lamp/index.html",
+    "precache-manifest.3fbe6e462699932ff9c2a92dc74bcdd4.js": "/shiny-octo-lamp/precache-manifest.3fbe6e462699932ff9c2a92dc74bcdd4.js",
+    "service-worker.js": "/shiny-octo-lamp/service-worker.js",
+    "static/css/2.67123b20.chunk.css.map": "/shiny-octo-lamp/static/css/2.67123b20.chunk.css.map",
+    "static/css/main.d1b05096.chunk.css.map": "/shiny-octo-lamp/static/css/main.d1b05096.chunk.css.map",
+    "static/js/2.da9d72b7.chunk.js.LICENSE": "/shiny-octo-lamp/static/js/2.da9d72b7.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b8470b82.js",
+    "static/css/2.67123b20.chunk.css",
+    "static/js/2.da9d72b7.chunk.js",
+    "static/css/main.d1b05096.chunk.css",
+    "static/js/main.978ffb48.chunk.js"
+  ]
+}
